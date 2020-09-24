@@ -1,0 +1,12 @@
+<div *ngIf="authService.isLoggedIn">
+  <h1>Hi, you are logged in!</h1>
+
+  <p>You successfully logged in using the ADAMOS IAM service as <i>{{name}}</i>.</p>
+
+  <button (click)="logout()">Log me out</button>
+</div>
+
+<div *ngIf="!authService.isLoggedIn">
+  <app-login-page *ngIf="authService.shouldShowLoginPage"></app-login-page>
+  <div *ngIf="!authService.shouldShowLoginPage">Wait for it...</div>
+</div>
